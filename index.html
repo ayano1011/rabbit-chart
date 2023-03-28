@@ -1,0 +1,28 @@
+<body>
+    <div id="myLineChart"></div>
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('48', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Or4LHQ2u0i520Fc3sZTok8PI67ybi41alb3CttDMQrI/edit#gid=0');
+            query.send(handleQueryResponse);
+        };
+
+        function handleQueryResponse(response) {
+            var data = response.getDataTable();
+
+            var options = {
+                title: '○月×日',
+                width: 300,
+                height: 250,
+                legend: 'bottom'
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('myLineChart'));
+            chart.draw(data, options);
+        }
+    </script>
+</body>

@@ -7,7 +7,7 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Or4LHQ2u0i520Fc3sZTok8PI67ybi41alb3CttDMQrI/edit#gid=0');
+            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Or4LHQ2u0i520Fc3sZTok8PI67ybi41alb3CttDMQrI/gviz/tq?range=A1:B9');
             query.send(handleQueryResponse);
         };
 
@@ -16,13 +16,21 @@
 
             var options = {
                 title: '○月×日',
-                width: 300,
-                height: 250,
+                width: 600,
+                height: 500,
                 legend: 'bottom'
             };
 
             var chart = new google.visualization.ColumnChart(document.getElementById('myLineChart'));
             chart.draw(data, options);
+        };
+
+        const url = 'https://script.google.com/macros/s/AKfycbzkcKh87G4P7klICtujmlshCJ4jBoQ_5TblDKRKSQg_dMiOecwUPyeiq951M5SdoY_Ybw/exec';
+        function jsonOutput() {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => { console.log('data:' + data); });
         }
+        jsonOutput();
     </script>
 </body>

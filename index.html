@@ -25,12 +25,26 @@
             chart.draw(data, options);
         };
 
-        const url = 'https://script.google.com/macros/s/AKfycbzkcKh87G4P7klICtujmlshCJ4jBoQ_5TblDKRKSQg_dMiOecwUPyeiq951M5SdoY_Ybw/exec';
-        function jsonOutput() {
-            fetch(url)
-                .then(response => response.json())
-                .then(data => { console.log('data:' + data); });
-        }
-        jsonOutput();
+        const url = 'https://script.google.com/macros/s/AKfycbx_bKXTlnLIB4JEuWwVN5G70gbU8rKETSn1MeSpEp-2PunKg-0rWoPsSy8k9iXv3zax9w/exec';
+
+        fetch(url)
+            .then(function (fetch_data) {
+                return fetch_data.json();
+            })
+            .then(function (json) {
+                for (var i in json) {
+                    console.log(json[i].createDate);
+                }
+                console.log(json[0].sum);
+            })
+
+        //     fetch(url)
+        //         .then(response => response.json())
+        //         .then(data => { console.log('data:' + data); })
+        //     console.log('data1行目:' + data[0].sum);
+        // }
+        // jsonOutput();
+        // consolo.log(date)
+        // console.log('data1行目:' + data[0].sum);
     </script>
 </body>

@@ -11,14 +11,22 @@
 </head>
 
 <body>
-    <ul id="data">
-
-    </ul>
-    <div id="myLineChart"></div>
-    <div class="total-area">
-        <ul id="total">
-        </ul>
+    <div class="data-area">
+        <div id="left-triangle"></div>
+        <ul id="data"></ul>
+        <div id="right-triangle"></div>
     </div>
+    <div class="total-area">
+        <a>合計</a>
+        <div class="total-text">
+
+            <ul id="total">
+            </ul>
+            <a>個</a>
+        </div>
+    </div>
+    <div id="myLineChart"></div>
+
 
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -37,8 +45,8 @@
 
             var options = {
                 // title: '○月×日',
-                width: 600,
-                height: 500,
+                width: 440,
+                height: 300,
                 legend: 'bottom'
             };
 
@@ -58,7 +66,7 @@
                 }
                 console.log(json[0].sum);
                 $('#data').append('<li><p>' + json[0].createDate + '</p></li>');
-                $('#total').append('<li><p>' + json[0].sum + '</p></li>');
+                $('#total').append('<li>' + json[0].sum + '</li>');
             })
     </script>
 </body>

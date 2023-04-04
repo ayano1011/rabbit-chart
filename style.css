@@ -2,7 +2,7 @@ body {
     font-family: Roboto, "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
     line-height: 1.75;
     font-size: 16px;
-    width: 960px;
+    width: 380px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -10,7 +10,49 @@ body {
     flex-direction: column;
 }
 
+.data-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#data {
+    font-size: 32px;
+    margin-left: 24px;
+    margin-right: 24px;
+    list-style: none;
+    padding-left: 0;
+}
+
+
+#right-triangle {
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 30px solid gray;
+}
+
+#left-triangle {
+    border-top: 30px solid transparent;
+    border-right: 30px solid gray;
+    border-bottom: 30px solid transparent;
+}
+
 .total-area {
     display: flex;
     justify-content: center;
+    height: 80px;
+}
+
+.total-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#total {
+    color: orangered;
+    font-size: 48px;
+    margin-top: 8px;
+    list-style: none;
+    padding-left: 0%;
 }

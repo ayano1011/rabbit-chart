@@ -1,5 +1,8 @@
 <body>
     <div id="myLineChart"></div>
+    <ul id="lists">
+
+    </ul>
 
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
@@ -36,6 +39,7 @@
                     console.log(json[i].createDate);
                 }
                 console.log(json[0].sum);
+                $('#lists').append('<li><p>' + json[0].sum + '</p></li>');
             })
         //     fetch(url)
         //         .then(response => response.json())

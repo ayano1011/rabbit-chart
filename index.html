@@ -1,10 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>テスト</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
 <body>
-    <div id="myLineChart"></div>
-    <ul id="lists">
+    <ul id="data">
 
     </ul>
+    <div id="myLineChart"></div>
+    <div class="total-area">
+        <ul id="total">
+        </ul>
+    </div>
 
     <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- <script src="chart1.js"></script> -->
     <script>
         google.charts.load('48', { packages: ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
@@ -18,7 +36,7 @@
             var data = response.getDataTable();
 
             var options = {
-                title: '○月×日',
+                // title: '○月×日',
                 width: 600,
                 height: 500,
                 legend: 'bottom'
@@ -28,7 +46,7 @@
             chart.draw(data, options);
         };
 
-        const url = 'https://script.google.com/macros/s/AKfycbx_bKXTlnLIB4JEuWwVN5G70gbU8rKETSn1MeSpEp-2PunKg-0rWoPsSy8k9iXv3zax9w/exec';
+        const url = 'https://script.google.com/macros/s/AKfycbz63aPDcd0LHT4RvxXk9__czJslwH23lD-UILhsmnfx1qyt0jmcd5tWKhycDR19fRcCTw/exec';
 
         fetch(url)
             .then(function (fetch_data) {
@@ -39,15 +57,10 @@
                     console.log(json[i].createDate);
                 }
                 console.log(json[0].sum);
-                $('#lists').append('<li><p>' + json[0].sum + '</p></li>');
+                $('#data').append('<li><p>' + json[0].createDate + '</p></li>');
+                $('#total').append('<li><p>' + json[0].sum + '</p></li>');
             })
-        //     fetch(url)
-        //         .then(response => response.json())
-        //         .then(data => { console.log('data:' + data); })
-        //     console.log('data1行目:' + data[0].sum);
-        // }
-        // jsonOutput();
-        // consolo.log(date)
-        // console.log('data1行目:' + data[0].sum);
     </script>
 </body>
+
+</html>

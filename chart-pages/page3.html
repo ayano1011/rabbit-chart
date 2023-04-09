@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <div class="data-area">
+        <a href=/page4.html>
+            <div id="left-triangle"></div>
+        </a>
+        <ul id="data"></ul>
+        <a href=/page2.html>
+            <div id="right-triangle"></div>
+        </a>
+    </div>
+    <div class="total-area">
+        <a>合計</a>
+        <div class="total-text">
+
+            <ul id="total">
+            </ul>
+            <a>個</a>
+        </div>
+    </div>
+    <!-- <a href=”○○.html”>次のページへ</a> -->
+    <div id="myLineChart"></div>
+
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- <script src="chart1.js"></script> -->
+    <script>
+        google.charts.load('48', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Or4LHQ2u0i520Fc3sZTok8PI67ybi41alb3CttDMQrI/gviz/tq?range=A48:B72');
+            query.send(handleQueryResponse);
+        };
+
+        function handleQueryResponse(response) {
+            var data = response.getDataTable();
+
+            var options = {
+                // title: '○月×日',
+                width: 440,
+                height: 300,
+                legend: 'bottom'
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('myLineChart'));
+            chart.draw(data, options);
+        };
+
+        const url = 'https://script.google.com/macros/s/AKfycbzt4x1LSpfwA-XNXNtbcQ8RUTHXAX6WzwCvBR3Jh_6Lu5cKY2qy6SixKUlxBxArG9WL7A/exec';
+
+        fetch(url)
+            .then(function (fetch_data) {
+                return fetch_data.json();
+            })
+            .then(function (json) {
+                for (var i in json) {
+                    console.log(json[i].createDate);
+                }
+                // console.log(json[0].sum);
+                const A = json[2].createDate;
+                const ValueOfcreateDate = A.substr(0, 10)
+                // console.log(A);
+                // console.log(A.substr(0, 10))
+                $('#data').append('<li><p>' + ValueOfcreateDate + '</p></li>');
+                $('#total').append('<li>' + json[2].sum + '</li>');
+            })
+    </script>
+</body>
+
+</html>

@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>テスト</title>
+    <title></title>
 
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
     <div class="data-area">
-        <div id="left-triangle"></div>
+        <a href=/page3.html>
+            <div id="left-triangle"></div>
+        </a>
         <ul id="data"></ul>
         <a href=/index.html>
             <div id="right-triangle"></div>
@@ -39,7 +41,7 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Or4LHQ2u0i520Fc3sZTok8PI67ybi41alb3CttDMQrI/gviz/tq?range=A1:B24');
+            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Or4LHQ2u0i520Fc3sZTok8PI67ybi41alb3CttDMQrI/gviz/tq?range=A25:B48');
             query.send(handleQueryResponse);
         };
 

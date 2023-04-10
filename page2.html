@@ -29,7 +29,7 @@
             <a>個</a>
         </div>
     </div>
-    <!-- <a href=”○○.html”>次のページへ</a> -->
+
     <div id="myLineChart"></div>
 
 
@@ -41,7 +41,7 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Or4LHQ2u0i520Fc3sZTok8PI67ybi41alb3CttDMQrI/gviz/tq?range=A25:B48');
+            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Or4LHQ2u0i520Fc3sZTok8PI67ybi41alb3CttDMQrI/gviz/tq?range=A48:B25');
             query.send(handleQueryResponse);
         };
 

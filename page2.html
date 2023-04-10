@@ -12,11 +12,13 @@
 
 <body>
     <div class="data-area">
-        <a href=/page2.html>
+        <a href=/page3.html>
             <div id="left-triangle"></div>
         </a>
         <ul id="data"></ul>
-        <div id="right-triangle"></div>
+        <a href=/index.html>
+            <div id="right-triangle"></div>
+        </a>
     </div>
     <div class="total-area">
         <a>合計</a>
@@ -27,6 +29,7 @@
             <a>個</a>
         </div>
     </div>
+
     <div id="myLineChart"></div>
 
 
@@ -38,7 +41,7 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Or4LHQ2u0i520Fc3sZTok8PI67ybi41alb3CttDMQrI/gviz/tq?range=A1:B24');
+            var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Or4LHQ2u0i520Fc3sZTok8PI67ybi41alb3CttDMQrI/gviz/tq?range=A48:B25');
             query.send(handleQueryResponse);
         };
 
@@ -67,12 +70,12 @@
                     console.log(json[i].createDate);
                 }
                 // console.log(json[0].sum);
-                const A = json[0].createDate;
+                const A = json[1].createDate;
                 const ValueOfcreateDate = A.substr(0, 10)
                 // console.log(A);
                 // console.log(A.substr(0, 10))
                 $('#data').append('<li><p>' + ValueOfcreateDate + '</p></li>');
-                $('#total').append('<li>' + json[0].sum + '</li>');
+                $('#total').append('<li>' + json[1].sum + '</li>');
             })
     </script>
 </body>
